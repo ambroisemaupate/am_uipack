@@ -231,7 +231,7 @@ function getNearestSlide( direction ) {
 		}
 	}).get(0);
 	
-	console.log("Nearest slide : "+jQuery(firstSlideVisible).attr("id"));
+	//console.log("Nearest slide : "+jQuery(firstSlideVisible).attr("id"));
 	
 	return firstSlideVisible;
 	
@@ -244,6 +244,7 @@ function slideToNearestSlide( direction ) {
 		o.slideTo(jQuery(nearest).attr("id"));
 	}
 	else {
+		// If last slide, return to last one
 		o.slideTo(jQuery("#"+o.carrousselID+" > .mask > .tabs > li:last-child").attr("id"));
 	}
 	
