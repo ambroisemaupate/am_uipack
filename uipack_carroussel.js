@@ -262,7 +262,7 @@ function slideToNearestSlide( direction ) {
  *					P .title --------------------------------------------
  * 					P (other contents) ----------------------------------
  *
- * @author Ambroise Maupate - ambroise.maupate.com
+ * @author Ambroise Maupate - http://www.ambroise.maupate.com
  */
 UIPack_Carroussel.prototype.carrousselID = 0;
 UIPack_Carroussel.prototype.canAnimate = true;
@@ -330,11 +330,7 @@ function UIPack_Carroussel( elementID )
 			o.canAnimate = true;
 			
 			o.startTouchCarrouselX = parseInt($(event.currentTarget).offset().left);
-/* 			o.startTouchCarrouselY = parseInt($(event.currentTarget).offset().top); */
-			
-			
 			o.startTouchX = o_event.targetTouches[0].clientX + jQuery("#"+o.carrousselID).offset().left;
-/* 			o.startTouchY = o_event.targetTouches[0].clientY - o.startTouchCarrouselY; */
 		}
 		
 	});
@@ -345,10 +341,8 @@ function UIPack_Carroussel( elementID )
 		if(o_event.targetTouches.length == 1){
 						
 			var realX = o.startTouchX - o_event.targetTouches[0].clientX;
-/* 			var realY = o.startTouchY -o_event.targetTouches[0].clientX; */
 			
 			$(event.currentTarget).css("left", (o.startTouchCarrouselX - realX) +"px");
-/* 			$(event.currentTarget).css("top",realY+"px"); */
 		}
 		
 	});
@@ -383,7 +377,7 @@ function UIPack_Carroussel( elementID )
  *					P .title --------------------------------------------
  * 					P (other contents) ----------------------------------
  *
- * @author Ambroise Maupate - ambroise.maupate.com
+ * @author Ambroise Maupate - http://www.ambroise.maupate.com
  */
 UIPack_Tabbed_Carroussel.prototype.carrousselID = 0;
 UIPack_Tabbed_Carroussel.prototype.canAnimate = true;
