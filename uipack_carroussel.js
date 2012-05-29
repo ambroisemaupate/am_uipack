@@ -240,8 +240,11 @@ function slideToNearestSlide( direction ) {
 	var o = this;
 	var nearest = o.getNearestSlide( direction );
 	
-	if(nearest != null){
+	if(nearest != null && nearest != undefined){
 		o.slideTo(jQuery(nearest).attr("id"));
+	}
+	else {
+		o.slideTo(jQuery("#"+o.carrousselID+" > .mask > .tabs > li:last-child").attr("id"));
 	}
 	
 }
