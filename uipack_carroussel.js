@@ -201,10 +201,18 @@ function getNearestSlide( direction ) {
 	
 	var carrouselXPos = jQuery("#"+o.carrousselID+" > .mask > ul").offset().left;
 	
-	var firstSlideVisible = jQuery("#"+o.carrousselID+" > .mask li").filter(function(){
+	carrouselXPos -= jQuery("#"+o.carrousselID).offset().left;
+	
+	var firstSlideVisible = jQuery("#"+o.carrousselID+" > .mask > .tabs > li").filter(function(){
+		
+		var relCurrentX = (jQuery(this).offset().left - jQuery("#"+o.carrousselID).offset().left);
+		
 		
 		// Running forward in slides
-		if(direction == 1 && jQuery(this).offset().left > jQuery(this).width()/2){
+		if(direction == 1 && relCurrentX > 0 && relCurrentX < jQuery(this).width()/4){
+			return true;
+		}
+		else if(direction == 1 && relCurrentX > -(jQuery(this).width()/4) && relCurrentX < jQuery(this).width()){
 			return true;
 		}
 		// Running backward while in first slide
@@ -212,7 +220,10 @@ function getNearestSlide( direction ) {
 			return true;
 		}
 		// Running backward
-		else if(direction == -1 && jQuery(this).prev("li") != undefined && jQuery(this).prev("li").offset().left > -(jQuery(this).prev("li").width())){
+		else if(direction == -1 && 
+			jQuery(this).prev("li").get(0) != undefined && 
+			(jQuery(this).prev("li").offset().left - jQuery("#"+o.carrousselID).offset().left) > -(jQuery(this).prev("li").width())*1.8)
+		{
 			return true;
 		}
 		else {
