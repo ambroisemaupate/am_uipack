@@ -1,0 +1,325 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>AM UI Pack Sandbox</title>
+		<meta name="generator" content="TextMate http://macromates.com/">
+		<meta name="author" content="Ambroise Maupate">
+		<meta pragma="no-cache">
+		
+		<link rel="stylesheet" href="jquery-ui-1.7.3.custom.min.css" type="text/css" media="screen" title="no title" charset="utf-8">
+		<link rel="stylesheet" href="uipack.css" type="text/css" media="screen" title="no title" charset="utf-8">
+		<style type="text/css" media="screen">
+			
+			body
+			{
+				background-color:white;
+				width:1024px;
+				margin:30px auto;
+			}
+		</style>
+		
+		<!-- Date: 2010-07-20 -->
+		<script src="jquery-1.4.2.min.js" type="text/javascript"></script>
+		<script src="jquery-ui-1.7.3.custom.min.js" type="text/javascript"></script>
+		
+		<script src="uipack_globals.js" type="text/javascript" charset="utf-8"></script>
+		<script src="uipack_carroussel.js" type="text/javascript" charset="utf-8"></script>
+		<script src="uipack_window.js" type="text/javascript" charset="utf-8"></script>
+		<script src="uipack_form.js" type="text/javascript" charset="utf-8"></script>
+		
+		<script type="text/javascript" charset="utf-8">
+			jQuery(document).ready( function() 
+			{
+				carroussel01 = new UIPack_Carroussel("carroussel01");
+				carroussel31 = new UIPack_Carroussel("carroussel31");
+				carroussel03 = new UIPack_Tabbed_Carroussel("carroussel03");
+				
+				modal1 = new UIPack_Modal("modal01");
+				window1 = new UIPack_Window("window01");
+				
+				setupUIPackForms();
+				
+				/* -------------------------------------------------
+				TESTING FEATURES
+				--------------------------------------------------*/
+			});
+		</script>
+		
+		
+	</head>
+	<body>
+		<h1 id="rdb/5_uipack_sandbox">AM UIPack Sandbox</h1>
+	
+		<ul class="uipack_nav_indicator">
+			<li class="square_begin"></li><li>Etape 1</li><li class="arrow_end">&nbsp;</li>
+			<li class="arrow_begin current"></li><li class="current">Je suis une grande étape</li><li class="arrow_end current">&nbsp;</li>
+			<li class="arrow_begin"></li><li>3</li><li class="arrow_end">&nbsp;</li>
+			<li class="arrow_begin"></li><li>Etape 4</li><li class="arrow_end">&nbsp;</li>
+			<li class="arrow_begin"></li><li>Etape 1</li><li class="arrow_end">&nbsp;</li>
+			<li class="arrow_begin"></li><li>Je suis une grande étape</li><li class="arrow_end">&nbsp;</li>
+			<li class="arrow_begin"></li><li>3</li><li class="arrow_end">&nbsp;</li>
+			<li class="arrow_begin"></li><li>Etape 4</li><li class="square_end">&nbsp;</li>
+			<li class="last">&nbsp;</li>
+		</ul>
+		<ul class="uipack_tab_selector">
+			<li class="first"><a href="#" title="name">First element</a></li>
+			<li><a href="javascript:void(0)" onclick="modal1.show();" title="name">Launch PopUp</a></li>
+			<li><a href="javascript:void(0)" onclick="window1.show();" title="name">Launch PopUp 2</a></li>
+			<li><a href="#" title="name">Third element</a></li>
+			<li><a href="#" title="name">Fourth element</a></li>
+			<li class="last"><a href="#" title="name">Fifth element</a></li>
+			<li class="clear"><a href="#" title="name">clear element</a></li>	
+		</ul>
+		
+		<div id="content" style"position:relative;">
+			<div id="left-column" style="position:absolute;">
+				<ul class="uipack_basket">
+					<h2>mybasket</h2>
+					<li>	
+						<p><a href="URL" class="name" title="Maison">Maison</a></p>
+						<p>dates</p>
+						<p>Prix</p>
+						<p><a href="#" class="delete" title="name">Supprimer</a></p>
+					</li>
+					<li>	
+						<p><a href="URL" class="name" title="name">Maison</a></p>
+						<p>dates</p>
+						<p>Prix</p>
+						<p><a href="#" class="delete" title="name">Supprimer</a></p>
+					</li>
+					<a class="uipack_action_button" href="#" title="name">Purchase</a>
+				</ul>
+
+				<ul class="uipack_list_box">
+					<li class="first">First element</li>
+					<li>Second one</li>	
+					<li>
+						<p><input type="slider" name="Slider01" value="10" min="0" max="100" id="Slider01"></p>
+						<p><input type="range" name="Range01" value="[0;20]" min="0" max="255" id="Range01"></p>
+					</li>
+					<li>
+						<div class="uipack_progress" name="progress01" value="20" id="progress01"></div>
+						<p><a class="uipack_button" href="javascript:void(0)" onclick="jQuery('#progress01').progressbar('value' ,80);"  title="name">+</a>&nbsp;<a class="uipack_button" href="javascript:void(0)" onclick="jQuery('#progress01').progressbar('value' ,5);"  title="name">-</a></p>
+					</li>
+				</ul>
+			</div>
+
+			<div id="right-column" style="position:absolute; margin-left:300px">
+					<div class="uipack_carroussel" id="carroussel01" style="height:400px;">
+						<div class="mask">
+							<ul>
+								<li class="current" style="width:300px;">
+									<p class="title">Etape1</p>
+									<p><strong>Carroussel title</strong></p>
+									<p>This a simple carroussel which enable many media as text, images and video. In fact this carroussel can handle everything which can be contained in a LI element with a relative state that doesn't override the carroussel CSS</p>
+								</li>
+								<li>
+									<p class="title">Etape1</p>
+									<img src="imagesExemple/Shot_1279678316.png" title="This is a sample image that goes into the carroussel" alt="This is a sample image that goes into the carroussel">
+								</li>
+								<li>
+									<p class="title">Etape1</p>
+									<img src="imagesExemple/Shot_1279974988.png" title="Image title" alt="Image title">
+								</li>
+								<li>
+									<p class="title">Etape1</p>
+									<img src="imagesExemple/Shot_1279992247.png" title="This is a sample image that goes into the carroussel" alt="This is a sample image that goes into the carroussel">
+								</li>
+
+								<li>
+									<p class="title">Etape1</p>
+									<img src="imagesExemple/Shot_1279678316.png" title="This is a sample image that goes into the carroussel" alt="This is a sample image that goes into the carroussel">
+								</li>
+								<li>
+									<p class="title">Etape1</p>
+									<img src="imagesExemple/Shot_1279974988.png" title="Image title" alt="Image title">
+								</li>
+								<li>
+									<p class="title">Etape1</p>
+									<img src="imagesExemple/Shot_1279992247.png" title="This is a sample image that goes into the carroussel" alt="This is a sample image that goes into the carroussel">
+								</li>
+
+								<li>
+									<p class="title">Etape1</p>
+									<img src="imagesExemple/Shot_1279678316.png" title="This is a sample image that goes into the carroussel" alt="This is a sample image that goes into the carroussel">
+								</li>
+								<li>
+									<p class="title">Etape1</p>
+									<img src="imagesExemple/Shot_1279974988.png" title="Image title" alt="Image title">
+								</li>
+								<li>
+									<p class="title">Etape1</p>
+									<img src="imagesExemple/Shot_1279992247.png" title="This is a sample image that goes into the carroussel" alt="This is a sample image that goes into the carroussel">
+								</li>
+
+								<li>
+									<p class="title">Etape1</p>
+									<img src="imagesExemple/Shot_1279678316.png" title="This is a sample image that goes into the carroussel" alt="This is a sample image that goes into the carroussel">
+								</li>
+								<li>
+									<p class="title">Etape1</p>
+									<img src="imagesExemple/Shot_1279974988.png" title="Image title" alt="Image title">
+								</li>
+								<li>
+									<p class="title">Etape1</p>
+									<img src="imagesExemple/Shot_1279992247.png" title="This is a sample image that goes into the carroussel" alt="This is a sample image that goes into the carroussel">
+								</li>
+
+								<li>
+									<p class="title">Etape1</p>
+									<img src="imagesExemple/Shot_1279678316.png" title="This is a sample image that goes into the carroussel" alt="This is a sample image that goes into the carroussel">
+								</li>
+								<li>
+									<p class="title">Etape1</p>
+									<img src="imagesExemple/Shot_1279974988.png" title="Image title" alt="Image title">
+								</li>
+								<li>
+									<p class="title">Etape1</p>
+									<img src="imagesExemple/Shot_1279992247.png" title="This is a sample image that goes into the carroussel" alt="This is a sample image that goes into the carroussel">
+								</li>
+
+								<li>
+									<p class="title">Etape1</p>
+									<img src="imagesExemple/Shot_1279678316.png" title="This is a sample image that goes into the carroussel" alt="This is a sample image that goes into the carroussel">
+								</li>
+								<li>
+									<p class="title">Etape1</p>
+									<img src="imagesExemple/Shot_1279974988.png" title="Image title" alt="Image title">
+								</li>
+								<li>
+									<p class="title">Etape1</p>
+									<img src="imagesExemple/Shot_1279992247.png" title="This is a sample image that goes into the carroussel" alt="This is a sample image that goes into the carroussel">
+								</li>
+
+								<li>
+									<p class="title">Etape1</p>
+									<img src="imagesExemple/Shot_1279678316.png" title="This is a sample image that goes into the carroussel" alt="This is a sample image that goes into the carroussel">
+								</li>
+								<li>
+									<p class="title">Etape1</p>
+									<img src="imagesExemple/Shot_1279974988.png" title="Image title" alt="Image title">
+								</li>
+								<li>
+									<p class="title">Etape1</p>
+									<img src="imagesExemple/Shot_1279992247.png" title="This is a sample image that goes into the carroussel" alt="This is a sample image that goes into the carroussel">
+								</li>
+
+								<li>
+									<p class="title">Etape1</p>
+									<img src="imagesExemple/Shot_1279678316.png" title="This is a sample image that goes into the carroussel" alt="This is a sample image that goes into the carroussel">
+								</li>
+								<li>
+									<p class="title">Etape1</p>
+									<img src="imagesExemple/Shot_1279974988.png" title="Image title" alt="Image title">
+								</li>
+								<li>
+									<p class="title">Etape1</p>
+									<img src="imagesExemple/Shot_1279992247.png" title="This is a sample image that goes into the carroussel" alt="This is a sample image that goes into the carroussel">
+								</li>
+
+								<li>
+									<p class="title">Etape1</p>
+									<img src="imagesExemple/Shot_1279678316.png" title="This is a sample image that goes into the carroussel" alt="This is a sample image that goes into the carroussel">
+								</li>
+								<li>
+									<p class="title">Etape1</p>
+									<img src="imagesExemple/Shot_1279974988.png" title="Image title" alt="Image title">
+								</li>
+								<li>
+									<p class="title">Etape1</p>
+									<img src="imagesExemple/Shot_1279992247.png" title="This is a sample image that goes into the carroussel" alt="This is a sample image that goes into the carroussel">
+								</li>
+
+								<li style="width:300px;">
+									<p class="title">Etape1</p>
+									<p><strong>Carroussel title</strong></p>
+									<p>This a simple carroussel which enable many media as text, images and video. In fact this carroussel can handle everything which can be contained in a LI element with a relative state that doesn't override the carroussel CSS</p>
+								</li>
+							</ul>
+						</div>		
+					</div>
+
+					<div class="uipack_tabbed_carroussel" id="carroussel03">
+						<div class="mask">
+							<ul>
+								<li class="current" style="width:300px;">
+									<p class="title">Carroussel title</p>
+									<p><strong>Carroussel title</strong></p>
+									<p>This a simple carroussel which enable many media as text, images and video. In fact this carroussel can handle everything which can be contained in a LI element with a relative state that doesn't override the carroussel CSS</p>
+								</li>
+								<li>
+									<p class="title">Etape 2</p>
+									<img src="imagesExemple/Shot_1279678316.png" title="This is a sample image that goes into the carroussel" alt="This is a sample image that goes into the carroussel">
+								</li>
+								<li>
+									<p class="title">Images</p>
+									<img src="imagesExemple/Shot_1279974988.png" title="Image title" alt="Image title">
+								</li>
+								<li>
+									<p class="title">Imbrication des carroussels</p>
+									<div class="uipack_carroussel" style="width:300px; height:200px;" id="carroussel31">
+										<div class="mask">
+											<ul>
+												<li class="current">
+													<p class="title">Etape 2</p>
+													<img src="imagesExemple/Shot_1279678316.png" title="This is a sample image that goes into the carroussel" alt="This is a sample image that goes into the carroussel">
+												</li>
+												<li>
+													<p class="title">Etape 3</p>
+													<img src="imagesExemple/Shot_1279974988.png" title="Image title" alt="Image title">
+												</li>
+												<li>
+													<p class="title">Etape 4</p>
+													<img src="imagesExemple/Shot_1279992247.png" title="This is a sample image that goes into the carroussel" alt="This is a sample image that goes into the carroussel">
+												</li>
+												<li>
+													<p class="title">Etape 4</p>
+													<img src="imagesExemple/Shot_1279992247.png" title="This is a sample image that goes into the carroussel" alt="This is a sample image that goes into the carroussel">
+												</li>
+												<li>
+													<p class="title">Etape 4</p>
+													<img src="imagesExemple/Shot_1279992247.png" title="This is a sample image that goes into the carroussel" alt="This is a sample image that goes into the carroussel">
+												</li>
+											</ul>
+										</div>		
+									</div>
+								</li>
+								<li style="width:300px;">
+									<p class="title">Etape 5</p>
+									<p><strong>Carroussel title</strong></p>
+									<p>This a simple carroussel which enable many media as text, images and video. In fact this carroussel can handle everything which can be contained in a LI element with a relative state that doesn't override the carroussel CSS</p>
+								</li>
+								<li>
+									<p class="title">Etape 4</p>
+									<img src="imagesExemple/Shot_1279992247.png" title="This is a sample image that goes into the carroussel" alt="This is a sample image that goes into the carroussel">
+								</li>
+								<li>
+									<p class="title">Etape 4</p>
+									<img src="imagesExemple/Shot_1279992247.png" title="This is a sample image that goes into the carroussel" alt="This is a sample image that goes into the carroussel">
+								</li>
+							</ul>
+						</div>		
+					</div>
+
+					<div class="uipack_modal" id="modal01">
+						<!-- Second carroussel -->
+						<p class="title">Etape 5</p>
+						<p><strong>Carroussel title</strong></p>
+						<p>This a simple carroussel which enable many media as text, images and video. In fact this carroussel can handle everything which can be contained in a LI element with a relative state that doesn't override the carroussel CSS</p>
+						<p><img src="imagesExemple/Shot_1279992247.png" title="This is a sample image that goes into the carroussel" alt="This is a sample image that goes into the carroussel"></p>
+					</div>
+					<div class="uipack_window" id="window01">
+						<p class="title">Etape 5</p>
+						<p><strong>Carroussel title</strong></p>
+						<p>This a simple carroussel which enable many media as text, images and video. In fact this carroussel can handle everything which can be contained in a LI element with a relative state that doesn't override the carroussel CSS</p>
+
+					</div>
+				</div>
+			
+		</div>
+	
+		
+				
+	</body>
+</html>

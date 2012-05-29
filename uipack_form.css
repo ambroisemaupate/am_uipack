@@ -1,0 +1,67 @@
+/* -------------------------------------------------
+uipack Form
+--------------------------------------------------*/
+
+.uipack_slider, .uipack_range
+{
+	height:20px;
+	margin:5px 0px 5px 0px;
+	
+	background-image:url("images/fondBars.png");
+	border-bottom: 1px solid #EEE;
+	border-top: 1px solid #999;
+	border-left: 1px solid #CCC;
+	border-right: 1px solid #CCC;
+}
+	.uipack_slider .ui-slider-handle, .uipack_range .ui-slider-handle
+	{
+		top:1px;
+		left:0px;
+		height:14px;
+		width:auto;
+		background-color:#CCC;
+		border: 1px solid #999;
+		
+		font-size:11px;
+		padding:2px 3px 0px 3px;
+		
+		
+		border-top: 1px solid #EEE;
+		border-bottom: 2px solid #999;
+		border-left: 1px solid #CCC;
+		border-right: 1px solid #CCC;
+		
+		background-image:url("images/topBars.png");
+		text-shadow:0px 1px 0px #FFF;
+		
+		cursor:pointer;
+		color:black;
+	}
+	.uipack_slider .ui-slider-handle:hover, .uipack_range .ui-slider-handle:hover
+	{
+		color:#666;
+	}
+	.ui-slider-range
+	{
+		background-color:none;
+		background-image:url("images/rangeBar.png") !important;
+	}
+	
+/* -------------------------------------------------
+uipack Progress Bar
+--------------------------------------------------*/	
+.uipack_progress
+{
+	height:20px;
+	margin:5px 0px 5px 0px;
+	background-image:url("images/fondBars.png");
+	
+	border-bottom: 1px solid #EEE;
+	border-top: 1px solid #999;
+	border-left: 1px solid #CCC;
+	border-right: 1px solid #CCC;
+}
+	.ui-progressbar-value
+	{
+		background-image:url("images/progressBar.gif");
+	}

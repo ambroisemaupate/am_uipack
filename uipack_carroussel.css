@@ -1,0 +1,205 @@
+/* -------------------------------------------------
+uipack Carroussels
+--------------------------------------------------*/
+
+
+/* -------------------------------------------------
+ui pack - Carroussel
+
+     ______________
+<-- |   content   | -->
+    |_____________|
+--------------------------------------------------*/
+.uipack_carroussel , .uipack_tabbed_carroussel
+{
+	/* This width define the total width of the mask diplaying the carroussel */
+	width:780px;
+	
+	/* This height define the total height of the mask diplaying the carroussel */
+	height:500px;	
+	
+	margin:0px;
+	position:relative;
+	background-color:white;
+}
+.uipack_carroussel > .mask, .uipack_tabbed_carroussel > .mask
+{
+	width:100%;
+	height:100%;
+	position:absolute;
+	overflow:hidden;
+}
+.uipack_carroussel img 
+{
+}
+.uipack_carroussel > .mask > .tabs, .uipack_tabbed_carroussel > .mask  > .tabs
+{
+	/* This width define the total width of the mask diplaying the carroussel */
+	width:9999px;
+	
+	height:100%;	
+	position:absolute;
+	left:0px;
+}
+.uipack_carroussel > .navigation > li, .uipack_tabbed_carroussel > .navigation > li
+{
+	position:relative;
+	height:100%;
+	float:left;
+	margin:0;
+}
+.uipack_carroussel > .mask > .tabs > li, .uipack_tabbed_carroussel > .mask > .tabs > li
+{
+	position:relative;
+	overflow:hidden;
+	height:100%;
+	float:left;
+	margin:0;
+}
+.uipack_carroussel .tabs > li p, .uipack_tabbed_carroussel .tabs > li  p
+{
+	/*margin:20px;*/
+}
+
+.uipack_carroussel > p > .previous
+{
+	position:absolute;
+	text-indent:-9999px;
+	z-index:999;
+	top:50%;
+	margin-top:-28px;
+	left:-39px;
+/*	display:none;*/
+	
+	width:39px;
+	height:59px;
+	background:url("../../img/flechegauche.png") no-repeat;
+	background-position:	0px 0px;
+}
+.uipack_carroussel > p > .previous:hover
+{
+	background-position:	0px -59px;
+}
+.uipack_carroussel > p > .previous:active
+{
+	background-position:	0px -118px;
+}
+.uipack_carroussel > p > .next
+{
+	position:absolute;
+	text-indent:-9999px;
+	top:50%;
+	margin-top:-28px;
+	right:-39px;
+	z-index:999;
+	display:block;
+	
+	width:39px;
+	height:59px;
+	background:url("../../img/flechedroite.png") no-repeat;
+	background-position:	0px 0px;
+}
+.uipack_carroussel > p > .next:hover
+{
+	background-position:	0px -59px;
+}
+.uipack_carroussel > p > .next:active
+{
+	background-position:	0px -118px;
+}
+.uipack_carroussel > .navigation
+{
+	position:absolute;
+	left:10px;
+	bottom:5px;
+	margin:5px auto;
+	
+	z-index:1000;
+}
+.uipack_carroussel > .navigation a
+{
+	display:block;
+	text-indent:-9999px;
+	width:20px;
+	height:20px;
+	
+	background-image:url("images/steps.png");
+	background-position:0 0;
+}
+.uipack_carroussel > .navigation a.current
+{
+	background-position:0 -20px;
+}
+
+/* -------------------------------------------------
+ui pack - Tabbed Carroussel
+
+ step1	step2	step3
+ __|_________________
+|                   |
+|     content       |
+—————————————————————
+
+--------------------------------------------------*/
+.uipack_tabbed_carroussel 
+{
+	/* This width define the total width of the mask diplaying the tabbed carroussel */
+	width:600px;
+	
+	/* This height define the total height of the mask diplaying the tabbed carroussel */
+	height:300px;	
+	
+	margin-top:50px;
+	
+	position:relative;
+}
+	.uipack_tabbed_carroussel > .navigation
+	{
+		position:absolute;
+		
+		top: -23px;
+	}
+	.uipack_tabbed_carroussel > .navigation a
+	{
+		padding:6px 10px 5px 10px;
+		margin-right:1px;
+		
+		color:#000;
+		text-shadow:0px 1px 0px #FFF;
+		font-size:12px;
+		
+		border-top: 1px solid #999;
+		
+	}
+	.uipack_tabbed_carroussel > .navigation a.current
+	{
+		
+		background-image:url("images/fondButton.png");
+		background-repeat:repeat-x;
+		
+		border-top-left-radius:5px;
+		border-top-right-radius:5px;
+
+		-webkit-border-top-left-radius:5px;
+		-webkit-border-top-right-radius:5px;
+
+		-moz-border-radius:5px 5px 0px 0px;
+			text-shadow:none;
+	}
+	.uipack_tabbed_carroussel > .navigation a
+	{
+		background: -webkit-gradient(linear, left top, left bottom, from(#CCC), to(#AAA));
+		background: -moz-linear-gradient(top,#CCC,#AAA);
+		
+		border-top-left-radius:5px;
+		border-top-right-radius:5px;
+
+		-webkit-border-top-left-radius:5px;
+		-webkit-border-top-right-radius:5px;
+
+		-moz-border-radius:5px 5px 0px 0px;
+	}
+	.uipack_tabbed_carroussel > .navigation a:hover
+	{
+		text-shadow:none;
+	}
