@@ -194,6 +194,48 @@ function slidePrevious()
 }
 
 /**
+ * get nearest slide with direction : 1 forward, -1 backward
+ */
+function getNearestSlide( direction ) {
+	var o = this;
+	
+	var carrouselXPos = jQuery("#"+o.carrousselID+" > .mask > ul").offset().left;
+	
+	var firstSlideVisible = jQuery("#"+o.carrousselID+" > .mask li").filter(function(){
+		
+		// Running forward in slides
+		if(direction == 1 && jQuery(this).offset().left > jQuery(this).width()/2){
+			return true;
+		}
+		// Running backward while in first slide
+		else if(direction == -1 && carrouselXPos > -jQuery(this).width()){
+			return true;
+		}
+		// Running backward
+		else if(direction == -1 && jQuery(this).prev("li") != undefined && jQuery(this).prev("li").offset().left > -(jQuery(this).prev("li").width())){
+			return true;
+		}
+		else {
+			return false;
+		}
+	}).get(0);
+	
+	console.log("Nearest slide : "+jQuery(firstSlideVisible).attr("id"));
+	
+	return firstSlideVisible;
+	
+}
+function slideToNearestSlide( direction ) {
+	var o = this;
+	var nearest = o.getNearestSlide( direction );
+	
+	if(nearest != null){
+		o.slideTo(jQuery(nearest).attr("id"));
+	}
+	
+}
+
+/**
  * UIPack Carroussel
  * A carroussel is simple carroussel with left and right links to switch between views
  * To create a carroussel you have to follow a strict HTML hierarchy :
@@ -216,7 +258,14 @@ UIPack_Carroussel.prototype.trace = traceObject;
 UIPack_Carroussel.prototype.actualizeNavigation = actualizeNavigation;
 UIPack_Carroussel.prototype.createNavigation = createNavigation;
 UIPack_Carroussel.prototype.getCarrousselTotalWidth = getCarrousselTotalWidth;
+UIPack_Carroussel.prototype.getNearestSlide = getNearestSlide;
+UIPack_Carroussel.prototype.slideToNearestSlide = slideToNearestSlide;
 UIPack_Carroussel.prototype.length = 0;
+
+UIPack_Carroussel.prototype.startTouchX = 0;
+UIPack_Carroussel.prototype.startTouchY = 0;
+UIPack_Carroussel.prototype.startTouchCarrouselX = 0;
+UIPack_Carroussel.prototype.startTouchCarrouselY = 0;
 
 function UIPack_Carroussel( elementID )
 {
@@ -252,6 +301,56 @@ function UIPack_Carroussel( elementID )
 		o.slideNext();
 		jQuery("#"+o.carrousselID+ " > p > .next").blur();
 	});
+	
+	/*
+	 * Enable multitouch scrolling
+	 */
+	jQuery("#"+o.carrousselID+" > .mask > ul").bind("touchstart", function(event){
+		event.preventDefault();
+		var o_event = event.originalEvent;
+		
+		if(o_event.targetTouches.length == 1){
+			
+			$(event.currentTarget).stop(false);
+			o.canAnimate = true;
+			
+			o.startTouchCarrouselX = parseInt($(event.currentTarget).offset().left);
+/* 			o.startTouchCarrouselY = parseInt($(event.currentTarget).offset().top); */
+			
+			
+			o.startTouchX = o_event.targetTouches[0].clientX + jQuery("#"+o.carrousselID).offset().left;
+/* 			o.startTouchY = o_event.targetTouches[0].clientY - o.startTouchCarrouselY; */
+		}
+		
+	});
+	jQuery("#"+o.carrousselID+" > .mask > ul").bind("touchmove", function(event){
+		event.preventDefault();
+		var o_event = event.originalEvent;
+		
+		if(o_event.targetTouches.length == 1){
+						
+			var realX = o.startTouchX - o_event.targetTouches[0].clientX;
+/* 			var realY = o.startTouchY -o_event.targetTouches[0].clientX; */
+			
+			$(event.currentTarget).css("left", (o.startTouchCarrouselX - realX) +"px");
+/* 			$(event.currentTarget).css("top",realY+"px"); */
+		}
+		
+	});
+	jQuery("#"+o.carrousselID+" > .mask > ul").bind("touchend", function(event){
+		event.preventDefault();
+		var o_event = event.originalEvent;
+		
+		if(o.startTouchCarrouselX > $(event.currentTarget).offset().left){
+			o.slideToNearestSlide(1);
+		}
+		else {
+			o.slideToNearestSlide(-1);
+		}
+		
+		
+	});
+
 		
 	o.createNavigation();
 	o.getCarrousselTotalWidth();
