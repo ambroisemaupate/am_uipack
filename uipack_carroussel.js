@@ -321,7 +321,7 @@ function UIPack_Carroussel( elementID )
 	 * Enable multitouch scrolling
 	 */
 	jQuery("#"+o.carrousselID+" > .mask > ul").bind("touchstart", function(event){
-		event.preventDefault();
+		//event.preventDefault();
 		var o_event = event.originalEvent;
 		
 		if(o_event.targetTouches.length == 1){
@@ -347,7 +347,7 @@ function UIPack_Carroussel( elementID )
 		
 	});
 	jQuery("#"+o.carrousselID+" > .mask > ul").bind("touchend", function(event){
-		event.preventDefault();
+		//event.preventDefault();
 		var o_event = event.originalEvent;
 		
 		if(o.startTouchCarrouselX > $(event.currentTarget).offset().left){
